@@ -1,13 +1,123 @@
-USE quest_game;
-
 CREATE TABLE IF NOT EXISTS perguntas ( 
-id INT AUTO_INCREMENT PRIMARY KEY, 
-pergunta TEXT, 
-resposta_correta VARCHAR(150),
-alternativa_incorreta1 VARCHAR(150),
-alternativa_incorreta2 VARCHAR(150),
-alternativa_incorreta3 VARCHAR(150)
+    id INT AUTO_INCREMENT PRIMARY KEY, 
+    pergunta TEXT, 
+    resposta_correta VARCHAR(150),
+    alternativa_incorreta1 VARCHAR(150),
+    alternativa_incorreta2 VARCHAR(150),
+    alternativa_incorreta3 VARCHAR(150),
+    tipo VARCHAR(50) DEFAULT NULL
 );
+
+
+UPDATE perguntas SET tipo = (
+    CASE
+		WHEN pergunta LIKE '%oceano%' THEN 'Geografia'
+        WHEN pergunta LIKE '%país mais populoso%' THEN 'Geografia'
+        WHEN pergunta LIKE '%capital do Brasil%' THEN 'Geografia'
+        WHEN pergunta LIKE '%sistema de governo%' THEN 'História'
+        WHEN pergunta LIKE '%monarquia%' THEN 'História'
+        WHEN pergunta LIKE '%livro%' THEN 'Cultura Geral'
+        WHEN pergunta LIKE '%instrumento musical%' THEN 'Cultura Geral'
+        WHEN pergunta LIKE '%puberdade%' THEN 'Biologia'
+        WHEN pergunta LIKE '%esporte dos reis%' THEN 'Esportes'
+        WHEN pergunta LIKE '%esporte mais popular nos Estados Unidos%' THEN 'Esportes'
+        WHEN pergunta LIKE '%nasceu o esporte conhecido como judô%' THEN 'Esportes'
+        WHEN pergunta LIKE '%unidade básica da vida%' THEN 'Biologia'
+        WHEN pergunta LIKE '%pai da computação%' THEN 'Tecnologia'
+        WHEN pergunta LIKE '%fórmula química da água%' THEN 'Ciência'
+        WHEN pergunta LIKE '%pintou a Mona Lisa%' THEN 'Arte'
+        WHEN pergunta LIKE '%protagonista da série de livros "Harry Potter"%' THEN 'Literatura'
+        WHEN pergunta LIKE '%cachorro mais famoso da internet%' THEN 'Cultura Geral'
+        WHEN pergunta LIKE '%autor da famosa série de livros "Crepúsculo"%' THEN 'Literatura'
+        WHEN pergunta LIKE '%maior deserto do mundo%' THEN 'Geografia'
+        WHEN pergunta LIKE '%rio mais longo do mundo%' THEN 'Geografia'
+        WHEN pergunta LIKE '%nome da fronteira natural entre Estados Unidos e México%' THEN 'Geografia'
+        WHEN pergunta LIKE '%documento de identificação mais comum no mundo%' THEN 'Cultura Geral'
+        WHEN pergunta LIKE '%primeiro presidente dos Estados Unidos%' THEN 'História'
+        WHEN pergunta LIKE '%nome dado à primeira guerra mundial%' THEN 'História'
+        WHEN pergunta LIKE '%esporte que utiliza uma bola pequena chamada de shuttlecock%' THEN 'Esportes'
+        WHEN pergunta LIKE '%maior jogador de basquete de todos os tempos%' THEN 'Esportes'
+        WHEN pergunta LIKE '%esporte nacional do Japão%' THEN 'Esportes'
+        WHEN pergunta LIKE '%nome dado à primeira missão tripulada a pisar na Lua%' THEN 'Ciência'
+        WHEN pergunta LIKE '%planeta mais próximo do Sol%' THEN 'Astronomia'
+        WHEN pergunta LIKE '%pai da eletricidade%' THEN 'Ciência'
+        WHEN pergunta LIKE '%quadro famoso de Leonardo da Vinci que retrata uma mulher com um sorriso enigmático%' THEN 'Arte'
+        WHEN pergunta LIKE '%peça de teatro "Romeu e Julieta"%' THEN 'Literatura'
+        WHEN pergunta LIKE '%série de TV que retrata a vida de um professor que começa a fabricar metanfetamina%' THEN 'Cultura Geral'
+        WHEN pergunta LIKE '%famosa rua de comércio e entretenimento em Nova York, conhecida como "a cidade que nunca dorme"%' THEN 'Cultura Geral'
+        WHEN pergunta LIKE '%nome do animal símbolo do WWF (World Wide Fund for Nature)%' THEN 'Biologia'
+        WHEN pergunta LIKE '%capital do Japão%' THEN 'Geografia'
+        WHEN pergunta LIKE '%país com a maior área territorial do mundo%' THEN 'Geografia'
+        WHEN pergunta LIKE '%cidade mais populosa do mundo%' THEN 'Geografia'
+        WHEN pergunta LIKE '%religião mais praticada no mundo%' THEN 'Cultura Geral'
+        WHEN pergunta LIKE '%cientista alemão que desenvolveu a teoria da relatividade%' THEN 'Ciência'
+        WHEN pergunta LIKE '%ano ocorreu a Revolução Francesa%' THEN 'História'
+        WHEN pergunta LIKE '%esporte que utiliza uma bola e tacos e é popular em países como Estados Unidos e Japão%' THEN 'Esportes'
+        WHEN pergunta LIKE '%maior jogador de basquete de todos os tempos%' THEN 'Esportes'
+        WHEN pergunta LIKE '%esporte nacional do Japão%' THEN 'Esportes'
+        WHEN pergunta LIKE '%primeira missão tripulada a pisar na Lua%' THEN 'Ciência'
+        WHEN pergunta LIKE '%planeta mais próximo do Sol%' THEN 'Astronomia'
+        WHEN pergunta LIKE '%pai da eletricidade%' THEN 'Ciência'
+        WHEN pergunta LIKE '%quadro famoso de Leonardo da Vinci que retrata uma mulher com um sorriso enigmático%' THEN 'Arte'
+        WHEN pergunta LIKE '%peça de teatro "Romeu e Julieta"%' THEN 'Literatura'
+        WHEN pergunta LIKE '%série de TV que retrata a vida de um professor que começa a fabricar metanfetamina%' THEN 'Cultura Geral'
+        WHEN pergunta LIKE '%famosa rua de comércio e entretenimento em Nova York, conhecida como "a cidade que nunca dorme"%' THEN 'Cultura Geral'
+        WHEN pergunta LIKE '%animal símbolo do WWF (World Wide Fund for Nature)%' THEN 'Biologia'
+        WHEN pergunta LIKE '%capital do Japão%' THEN 'Geografia'
+        WHEN pergunta LIKE '%país com a maior área territorial do mundo%' THEN 'Geografia'
+        WHEN pergunta LIKE '%cidade mais populosa do mundo%' THEN 'Geografia'
+        WHEN pergunta LIKE '%religião mais praticada no mundo%' THEN 'Cultura Geral'
+        WHEN pergunta LIKE '%cientista alemão que desenvolveu a teoria da relatividade%' THEN 'Ciência'
+        WHEN pergunta LIKE '%ano ocorreu a Revolução Francesa%' THEN 'História'
+        WHEN pergunta LIKE '%esporte que utiliza uma bola e tacos e é popular em países como Estados Unidos e Japão%' THEN 'Esportes'
+        WHEN pergunta LIKE '%nome do troféu dado ao campeão da Copa do Mundo de Futebol%' THEN 'Esportes'
+        WHEN pergunta LIKE '%unidade de medida de energia no sistema internacional%' THEN 'Ciência'
+        WHEN pergunta LIKE '%nome do famoso quadro de Edvard Munch que retrata uma figura gritando%' THEN 'Arte'
+        WHEN pergunta LIKE '%esporte que tem uma rede, uma bola e é praticado na areia%' THEN 'Esportes'
+        WHEN pergunta LIKE '%troféu dado ao vencedor do Campeonato Mundial de Fórmula 1%' THEN 'Esportes'
+        WHEN pergunta LIKE '%esporte que utiliza uma bola pequena chamada de "pelota" e é popular na Espanha%' THEN 'Esportes'
+		WHEN pergunta LIKE '%torneio anual de golfe que é um dos quatro torneios principais%' THEN 'Esportes'
+		WHEN pergunta LIKE '%nome da substância que dá a cor verde às plantas%' THEN 'Biologia'
+		WHEN pergunta LIKE '%instrumento usado para medir a pressão arterial%' THEN 'Ciência'
+		WHEN pergunta LIKE '%documento que garante a proteção de um invento ou processo inovador%' THEN 'Cultura Geral'
+		WHEN pergunta LIKE '%capital da Espanha%' THEN 'Geografia'
+		WHEN pergunta LIKE '%líder político responsável pela unificação da Alemanha em 1871%' THEN 'História'
+		WHEN pergunta LIKE '%documento que protege os direitos fundamentais dos cidadãos em um país%' THEN 'Cultura Geral'
+		WHEN pergunta LIKE '%esporte que tem uma bola pequena chamada de "jack" e é jogado em uma quadra de grama%' THEN 'Esportes'
+		WHEN pergunta LIKE '%recorde de mais títulos de Wimbledon no tênis masculino%' THEN 'Esportes'
+		WHEN pergunta LIKE '%esporte que tem uma rede, uma bola e é praticado na areia%' THEN 'Esportes'
+		WHEN pergunta LIKE '%troféu dado ao campeão da Copa do Mundo de Futebol%' THEN 'Esportes'
+		WHEN pergunta LIKE '%unidade de medida de energia no sistema internacional%' THEN 'Ciência'
+		WHEN pergunta LIKE '%nome do famoso quadro de Edvard Munch que retrata uma figura gritando%' THEN 'Arte'
+		WHEN pergunta LIKE '%esporte que tem uma rede, uma bola e é praticado na areia%' THEN 'Esportes'
+		WHEN pergunta LIKE '%torneio anual de golfe que é um dos quatro torneios principais%' THEN 'Esportes'
+		WHEN pergunta LIKE '%substância que dá a cor verde às plantas%' THEN 'Biologia'
+		WHEN pergunta LIKE '%instrumento usado para medir a pressão arterial%' THEN 'Ciência'
+		WHEN pergunta LIKE '%documento que garante a proteção de um invento ou processo inovador%' THEN 'Cultura Geral'
+		WHEN pergunta LIKE '%capital da Espanha%' THEN 'Geografia'
+		WHEN pergunta LIKE '%líder político responsável pela unificação da Alemanha em 1871%' THEN 'História'
+		WHEN pergunta LIKE '%documento que protege os direitos fundamentais dos cidadãos em um país%' THEN 'Cultura Geral'
+		WHEN pergunta LIKE '%período de tempo durante o qual uma pessoa governa um país%' THEN 'História'
+		WHEN pergunta LIKE '%esporte que tem uma bola e é praticado em uma quadra dividida por uma rede%' THEN 'Esportes'
+		WHEN pergunta LIKE '%evento esportivo internacional que ocorre a cada quatro anos e reúne atletas de todo o mundo%' THEN 'Esportes'
+		WHEN pergunta LIKE '%pai da teoria da evolução das espécies por seleção natural%' THEN 'Ciência'
+		WHEN pergunta LIKE '%unidade de medida de temperatura no sistema internacional%' THEN 'Ciência'
+		WHEN pergunta LIKE '%nome do processo pelo qual os organismos vivos produzem energia%' THEN 'Biologia'
+		WHEN pergunta LIKE '%unidade básica de armazenamento em um computador%' THEN 'Tecnologia'
+		WHEN pergunta LIKE '%pai da teoria da relatividade%' THEN 'Ciência'
+		WHEN pergunta LIKE '%capacidade de um material conduzir eletricidade%' THEN 'Ciência'
+		WHEN pergunta LIKE '%componente químico principal do vidro%' THEN 'Ciência'
+		WHEN pergunta LIKE '%processo que converte açúcar em álcool e dióxido de carbono%' THEN 'Ciência'
+		WHEN pergunta LIKE '%instrumento utilizado para visualizar objetos distantes no céu%' THEN 'Ciência'
+		WHEN pergunta LIKE '%autor da obra "A Divina Comédia"%' THEN 'Literatura'
+		WHEN pergunta LIKE '%pintor impressionista que pintou "Impressão, nascer do sol"%' THEN 'Arte'
+		WHEN pergunta LIKE '%atriz que interpretou Katniss Everdeen nos filmes da série "Jogos Vorazes"%' THEN 'Cinema'
+		WHEN pergunta LIKE '%diretor do filme "Titanic"%' THEN 'Cinema'
+		WHEN pergunta LIKE '%famoso prêmio de cinema concedido pela Academia de Artes e Ciências Cinematográficas%' THEN 'Cinema'
+		WHEN pergunta LIKE '%famoso evento de tecnologia realizado anualmente em Las Vegas%' THEN 'Tecnologia'
+		WHEN pergunta LIKE '%famosa avenida de Londres conhecida por seus teatros e cinemas%' THEN 'Cultura Geral'
+	END
+) WHERE id > 0;
 
 INSERT INTO perguntas (pergunta, resposta_correta, alternativa_incorreta1, alternativa_incorreta2, alternativa_incorreta3) VALUES
 ('Qual o maior oceano do mundo?','Oceano Pacífico', 'Oceano Atlântico', 'Oceano Índico', 'Oceano Ártico'),
@@ -24,7 +134,6 @@ INSERT INTO perguntas (pergunta, resposta_correta, alternativa_incorreta1, alter
 ('Qual é a fórmula química da água?', 'H2O', 'H2O2', 'CO2', 'NaCl'),
 ('Quem pintou a Mona Lisa?', 'Leonardo da Vinci', 'Michelangelo', 'Pablo Picasso', 'Vincent van Gogh'),
 ('Qual é o nome do protagonista da série de livros "Harry Potter"?', 'Harry Potter', 'Ron Weasley', 'Hermione Granger', 'Albus Dumbledore'),
-('Quem dirigiu o filme "Titanic"?', 'James Cameron', 'Steven Spielberg', 'Christopher Nolan', 'Quentin Tarantino'),
 ('Qual é o nome do instrumento musical que possui teclas brancas e pretas e é tocado com as mãos?', 'Piano', 'Guitarra', 'Violino', 'Bateria'),
 ('Qual é o nome do cachorro mais famoso da internet?', 'Boo', 'Max', 'Buddy', 'Snoopy'),
 ('Quem é o autor da famosa série de livros "Crepúsculo"?', 'Stephenie Meyer', 'J.K. Rowling', 'Suzanne Collins', 'George R.R. Martin'),
@@ -110,7 +219,6 @@ INSERT INTO perguntas (pergunta, resposta_correta, alternativa_incorreta1, alter
 ('Qual é o nome dado ao período de tempo durante o qual uma pessoa governa um país?', 'Reinado', 'Mandato', 'Regência', 'Mandado'),
 ('Qual é o esporte que tem uma bola e é praticado em uma quadra dividida por uma rede?', 'Vôlei', 'Tênis', 'Basquete', 'Futebol'),
 ('Qual é o nome do evento esportivo internacional que ocorre a cada quatro anos e reúne atletas de todo o mundo?', 'Jogos Olímpicos', 'Copa do Mundo', 'Campeonato Mundial', 'Super Bowl'),
-('Em que país nasceu o esporte judô?', 'Japão', 'China', 'Brasil', 'Coreia do Sul'),
 ('Qual é o nome do cientista que propôs a teoria da evolução das espécies por seleção natural?', 'Charles Darwin', 'Isaac Newton', 'Albert Einstein', 'Gregor Mendel'),
 ('Qual é a unidade de medida de temperatura no sistema internacional?', 'Grau Celsius', 'Kelvin', 'Fahrenheit', 'Pascal'),
 ('Qual é o nome do processo pelo qual os organismos vivos produzem energia?', 'Fotossíntese', 'Respiração', 'Digestão', 'Transpiração'),
